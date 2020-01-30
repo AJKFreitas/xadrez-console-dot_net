@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aasantos6\\source\\repos\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
+      "projectUniqueName": "D:\\ESTUDOS.NET\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
       "projectName": "Xadrez-Console",
-      "projectPath": "C:\\Users\\aasantos6\\source\\repos\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
+      "projectPath": "D:\\ESTUDOS.NET\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
       "packagesPath": "C:\\Users\\aasantos6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aasantos6\\source\\repos\\Xadrez-Console\\Xadrez-Console\\obj\\",
+      "outputPath": "D:\\ESTUDOS.NET\\Xadrez-Console\\Xadrez-Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
