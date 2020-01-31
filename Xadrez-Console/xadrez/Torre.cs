@@ -18,55 +18,55 @@ namespace Xadrez_Console.xadrez
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
-            Posicao posicao = new Posicao(Posicao.Linha, Posicao.Coluna);
+            Posicao posicaoM = new Posicao(Posicao.Linha, Posicao.Coluna);
 
             //acima
-            posicao.definirValores(posicao.Linha - 1, posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            posicaoM.definirValores(Posicao.Linha - 1, Posicao.Coluna);
+            while (Tabuleiro.PosicaoValida(posicaoM) && PodeMover(posicaoM))
             {
-                mat[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                mat[posicaoM.Linha, posicaoM.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicaoM) != null && Tabuleiro.GetPeca(posicaoM).Cor != Cor)
                 {
                     break;
                 }
-                posicao.Linha = posicao.Linha - 1;
+                posicaoM.Linha = posicaoM.Linha - 1;
             }
 
             //abaixo
-            posicao.definirValores(posicao.Linha + 1, posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            posicaoM.definirValores(Posicao.Linha + 1, Posicao.Coluna);
+            while (Tabuleiro.PosicaoValida(posicaoM) && PodeMover(posicaoM))
             {
-                mat[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                mat[posicaoM.Linha, posicaoM.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicaoM) != null && Tabuleiro.GetPeca(posicaoM).Cor != Cor)
                 {
                     break;
                 }
-                posicao.Linha = posicao.Linha + 1;
+                posicaoM.Linha = posicaoM.Linha + 1;
             }
 
             //direita
-            posicao.definirValores(posicao.Linha, posicao.Coluna + 1);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            posicaoM.definirValores(Posicao.Linha, Posicao.Coluna + 1);
+            while (Tabuleiro.PosicaoValida(posicaoM) && PodeMover(posicaoM))
             {
-                mat[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                mat[posicaoM.Linha, posicaoM.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicaoM) != null && Tabuleiro.GetPeca(posicaoM).Cor != Cor)
                 {
                     break;
                 }
-                posicao.Coluna = posicao.Coluna + 1;
+                posicaoM.Coluna = posicaoM.Coluna + 1;
             }
 
 
             //esquerda
-            posicao.definirValores(posicao.Linha, posicao.Coluna - 1);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            posicaoM.definirValores(Posicao.Linha, Posicao.Coluna - 1);
+            while (Tabuleiro.PosicaoValida(posicaoM) && PodeMover(posicaoM))
             {
-                mat[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                mat[posicaoM.Linha, posicaoM.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicaoM) != null && Tabuleiro.GetPeca(posicaoM).Cor != Cor)
                 {
                     break;
                 }
-                posicao.Coluna = posicao.Coluna - 1;
+                posicaoM.Coluna = posicaoM.Coluna - 1;
             }
 
 
