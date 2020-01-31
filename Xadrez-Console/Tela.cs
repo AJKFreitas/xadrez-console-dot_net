@@ -15,14 +15,7 @@ namespace Xadrez_Console
                 Console.Write($"{8 - linha} ");
                 for (int coluna = 0; coluna < tabuleiro.Colunas; coluna++)
                 {
-                    if (tabuleiro.Pecas[linha,coluna] == null)
-                    {
-                        Console.Write("-  ");
-                    }
-                    else
-                    {
-                        ImprimirPeca(tabuleiro.GetPeca(linha, coluna));
-                    }
+                    ImprimirPeca(tabuleiro.GetPeca(linha, coluna));
                 }
                 Console.WriteLine();
             }
@@ -33,23 +26,56 @@ namespace Xadrez_Console
         {
             string posicao = Console.ReadLine();
             char coluna = posicao[0];
-            int  linha = int.Parse(posicao[1] + "");
-            return new PosicaoXadrez(coluna,linha);
+            int linha = int.Parse(posicao[1] + "");
+            return new PosicaoXadrez(coluna, linha);
+        }
+
+        internal static void ImprimeTabuleiroNaTela(Tabuleiro tabuleiro, bool[,] posicoesPossiveis)
+        {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoMarcado = ConsoleColor.DarkBlue;
+
+            for (int linha = 0; linha < tabuleiro.Linhas; linha++)
+            {
+                Console.Write($"{8 - linha} ");
+                for (int coluna = 0; coluna < tabuleiro.Colunas; coluna++)
+                {
+                    if (posicoesPossiveis[linha, coluna])
+                    {
+                        Console.BackgroundColor = fundoMarcado;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = fundoOriginal;
+                    }
+                    ImprimirPeca(tabuleiro.GetPeca(linha, coluna));
+                    Console.BackgroundColor = fundoOriginal;
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  A  B  C  D  E  F  G  H");
+            Console.BackgroundColor = fundoOriginal;
         }
 
         public static void ImprimirPeca(Peca peca)
         {
-
-            if (peca.Cor == Cor.Branco)
+            if (peca == null)
             {
-                Console.Write($"{peca} ");
+                Console.Write("-  ");
             }
             else
             {
-                ConsoleColor corOriginal = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write($"{peca} ");
-                Console.ForegroundColor = corOriginal;
+                if (peca.Cor == Cor.Branco)
+                {
+                    Console.Write($"{peca} ");
+                }
+                else
+                {
+                    ConsoleColor corOriginal = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"{peca} ");
+                    Console.ForegroundColor = corOriginal;
+                }
             }
         }
     }

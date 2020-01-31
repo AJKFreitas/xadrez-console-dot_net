@@ -41,6 +41,28 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "FontAwesome": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "SharpFont": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "System.Console": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "Unicode.net": {
+              "target": "Package",
+              "version": "[0.1.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

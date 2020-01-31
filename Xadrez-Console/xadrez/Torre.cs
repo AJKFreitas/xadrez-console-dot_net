@@ -15,5 +15,69 @@ namespace Xadrez_Console.xadrez
         {
             return "T ";
         }
+        public override bool[,] MovimentosPossiveis()
+        {
+            bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
+            Posicao posicao = new Posicao(Posicao.Linha, Posicao.Coluna);
+
+            //acima
+            posicao.definirValores(posicao.Linha - 1, posicao.Coluna);
+            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            {
+                mat[posicao.Linha, posicao.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                {
+                    break;
+                }
+                posicao.Linha = posicao.Linha - 1;
+            }
+
+            //abaixo
+            posicao.definirValores(posicao.Linha + 1, posicao.Coluna);
+            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            {
+                mat[posicao.Linha, posicao.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                {
+                    break;
+                }
+                posicao.Linha = posicao.Linha + 1;
+            }
+
+            //direita
+            posicao.definirValores(posicao.Linha, posicao.Coluna + 1);
+            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            {
+                mat[posicao.Linha, posicao.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                {
+                    break;
+                }
+                posicao.Coluna = posicao.Coluna + 1;
+            }
+
+
+            //esquerda
+            posicao.definirValores(posicao.Linha, posicao.Coluna - 1);
+            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            {
+                mat[posicao.Linha, posicao.Coluna] = true;
+                if (Tabuleiro.GetPeca(posicao) != null && Tabuleiro.GetPeca(posicao).Cor != Cor)
+                {
+                    break;
+                }
+                posicao.Coluna = posicao.Coluna - 1;
+            }
+
+
+
+            return mat;
+        }
+
+        protected bool PodeMover(Posicao posicao)
+        {
+            Peca peca = Tabuleiro.GetPeca(posicao);
+            return peca == null || peca.Cor != Cor;
+        }
     }
 }
