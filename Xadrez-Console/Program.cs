@@ -13,9 +13,11 @@ namespace Xadrez_Console
             {
             Tabuleiro tab = new Tabuleiro(8,8);
             tab.SetPeca(new Torre(Cor.Preto, tab), new Posicao(0, 5));
-            tab.SetPeca(new Rei(Cor.Preto, tab), new Posicao(0, 5));
+            tab.SetPeca(new Rei(Cor.Preto, tab), new Posicao(5, 5));
             tab.SetPeca(new Rei(Cor.Preto, tab), new Posicao(2, 5));
             tab.SetPeca(new Torre(Cor.Preto, tab), new Posicao(1, 5));
+            tab.SetPeca(new Torre(Cor.Branco, tab), new Posicao(1, 2));
+            tab.SetPeca(new Torre(Cor.Branco, tab), new Posicao(1, 1));
             Console.WriteLine("          (--Xadrez--)");
             Tela.ImprimeTabuleiroNaTela(tab);
 
