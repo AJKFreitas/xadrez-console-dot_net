@@ -25,6 +25,17 @@ namespace Xadrez_Console.tabuleiro
         public Peca GetPeca(Posicao posicao)
         {
             return Pecas[posicao.Linha, posicao.Coluna];
+        }  
+        public Peca RemovePeca(Posicao posicao)
+        {
+            if (GetPeca(posicao) == null)
+            {
+                return null;
+            }
+            Peca pecaAux = GetPeca(posicao);
+            pecaAux.Posicao = null;
+            Pecas[posicao.Linha, posicao.Coluna] = null;
+            return pecaAux;
         }
 
         public void SetPeca(Peca peca, Posicao posicao)

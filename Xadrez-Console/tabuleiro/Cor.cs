@@ -7,8 +7,7 @@ namespace Xadrez_Console.tabuleiro
     public enum Cor
     {
         Preto = 0,
-        Branco = 1
-
-
+        Branco = 1,
+        Braco = 2
     }
 }
