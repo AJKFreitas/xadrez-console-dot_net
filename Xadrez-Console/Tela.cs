@@ -31,6 +31,11 @@ namespace Xadrez_Console
             Console.WriteLine();
             Console.WriteLine($"Turno: {partidaDeXadrez.Turno}");
             Console.WriteLine($"Aguardando jogada: {partidaDeXadrez.JogadorAtual}");
+
+            if (partidaDeXadrez.Xeque)
+            {
+                Console.WriteLine("Xeque!");
+            }
         }
 
         private static void ImprimirPecasCapituradas(PartidaDeXadrez partidaDeXadrez)
