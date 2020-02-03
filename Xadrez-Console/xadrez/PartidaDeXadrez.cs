@@ -49,10 +49,15 @@ namespace Xadrez_Console.xadrez
 
             }
             Xeque = EstaEmXeque(Adversaria(JogadorAtual));
-            
-
-            Turno++;
-            MudaJogador();
+            if (TexteXequemate(Adversaria(JogadorAtual)))
+            {
+                Terminada = true;
+            }
+            else
+            {
+                Turno ++;
+                MudaJogador();
+            }
 
         }
 
@@ -177,6 +182,37 @@ namespace Xadrez_Console.xadrez
 
             }
             return false;
+        }
+
+        public bool TexteXequemate(Cor cor)
+        {
+            if (!EstaEmXeque(cor))
+            {
+                return false;
+            }
+            foreach (Peca peca in PecasEmJogo(cor))
+            {
+                bool[,] mat = peca.MovimentosPossiveis();
+                for (int linha = 0; linha < Tabuleiro.Linhas; linha++)
+                {
+                    for (int coluna = 0; coluna < Tabuleiro.Colunas; coluna++)
+                    {
+                        if (mat[linha, coluna])
+                        {
+                            Posicao origem = peca.Posicao;
+                            Posicao destino = new Posicao(linha, coluna);
+                            Peca pecaCapturada = MovimentarPeca(origem, destino);
+                            bool testeXeque = EstaEmXeque(cor);
+                            DesfazMovimento(origem, destino, pecaCapturada);
+                            if (!testeXeque)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
         private void PreecherTabuleiro()
