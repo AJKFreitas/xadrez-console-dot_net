@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using xadrez;
 using Xadrez_Console.tabuleiro;
+using Xadrez_Console.xadrez;
 
 namespace Xadrez_Console
 {
@@ -20,6 +21,36 @@ namespace Xadrez_Console
                 Console.WriteLine();
             }
             Console.WriteLine("  A  B  C  D  E  F  G  H");
+        }
+
+        internal static void ImprimirPartida(PartidaDeXadrez partidaDeXadrez)
+        {
+            ImprimeTabuleiroNaTela(partidaDeXadrez.Tabuleiro);
+            Console.WriteLine();
+            ImprimirPecasCapituradas(partidaDeXadrez);
+            Console.WriteLine();
+            Console.WriteLine($"Turno: {partidaDeXadrez.Turno}");
+            Console.WriteLine($"Aguardando jogada: {partidaDeXadrez.JogadorAtual}");
+        }
+
+        private static void ImprimirPecasCapituradas(PartidaDeXadrez partidaDeXadrez)
+        {
+            Console.WriteLine("Peças Capituradas:");
+            Console.Write("Brancas: ");
+            ImprimirConjunto(partidaDeXadrez.PecasCapturadas(Cor.Branco));
+            Console.WriteLine();
+            Console.Write("Pretas: ");
+            ImprimirConjunto(partidaDeXadrez.PecasCapturadas(Cor.Preto));
+        }
+
+        private static void ImprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca peca in conjunto)
+            {
+                Console.Write(peca + " ");
+            }
+            Console.Write("]");
         }
 
         public static PosicaoXadrez LerPosicaoXadrez()
