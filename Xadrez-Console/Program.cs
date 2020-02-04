@@ -47,10 +47,10 @@ namespace Xadrez_Console
                         Console.ReadLine();
 
                     }
-                    Console.Clear();
-                    Console.WriteLine("          (--Xadrez--)");
-                    Tela.ImprimirPartida(partidaDeXadrez);
                 }
+                    //Console.Clear();
+                    //Console.WriteLine("          (--Xadrez--)");
+                    //Tela.ImprimirPartida(partidaDeXadrez);
             }
             catch (TabuleiroException te)
             {

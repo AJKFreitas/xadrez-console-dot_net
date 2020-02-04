@@ -33,7 +33,7 @@ namespace Xadrez_Console.xadrez
                 {
                     break;
                 }
-                posicao.definirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+                posicao.definirValores(posicao.Linha - 1, posicao.Coluna - 1);
             } 
             //NE
             posicao.definirValores(Posicao.Linha - 1, Posicao.Coluna +1);
@@ -44,7 +44,7 @@ namespace Xadrez_Console.xadrez
                 {
                     break;
                 }
-                posicao.definirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+                posicao.definirValores(posicao.Linha - 1, posicao.Coluna + 1);
             }
             //SE
             posicao.definirValores(Posicao.Linha + 1, Posicao.Coluna +1);
@@ -55,7 +55,7 @@ namespace Xadrez_Console.xadrez
                 {
                     break;
                 }
-                posicao.definirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+                posicao.definirValores(posicao.Linha + 1, posicao.Coluna + 1);
             }
             //SE
             posicao.definirValores(Posicao.Linha + 1, Posicao.Coluna -1);
@@ -66,7 +66,7 @@ namespace Xadrez_Console.xadrez
                 {
                     break;
                 }
-                posicao.definirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+                posicao.definirValores(posicao.Linha + 1, posicao.Coluna - 1);
             }
             return mat;
         }

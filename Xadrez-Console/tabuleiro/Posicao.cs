@@ -9,9 +9,6 @@ namespace Xadrez_Console.tabuleiro
         public int Linha { get; set; }
         public int Coluna { get; set; }
 
-        public Posicao()
-        {
-        }
         public void definirValores(int linha, int coluna)
         {
             Linha = linha;
