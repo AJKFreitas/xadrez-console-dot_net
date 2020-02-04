@@ -86,7 +86,25 @@ namespace Xadrez_Console.xadrez
                 throw new TabuleiroException("Você não pode se colocar em xeque!");
 
             }
-            Xeque = EstaEmXeque(Adversaria(JogadorAtual));
+            Peca pecaMovida = Tabuleiro.GetPeca(destino);
+            //#jogadaespecial promocao
+            if (pecaMovida is Peao)
+            {
+                if (pecaMovida.Cor == Cor.Branco && destino.Linha ==0 || (pecaMovida.Cor == Cor.Preto && destino.Linha ==7))
+                {
+                    pecaMovida = Tabuleiro.RemovePeca(destino);
+                    Pecas.Remove(pecaMovida);
+                    Peca dama = new Dama(pecaMovida.Cor,Tabuleiro);
+                    Tabuleiro.SetPeca(dama, destino);
+                    Pecas.Add(dama);
+                }
+            }
+
+            if (EstaEmXeque(Adversaria(JogadorAtual)))
+            {
+                Xeque = true;
+            }
+            //Xeque = EstaEmXeque(Adversaria(JogadorAtual));
             if (TexteXequemate(Adversaria(JogadorAtual)))
             {
                 Terminada = true;
@@ -96,7 +114,6 @@ namespace Xadrez_Console.xadrez
                 Turno ++;
                 MudaJogador();
             }
-            Peca pecaMovida = Tabuleiro.GetPeca(destino);
             if (pecaMovida is Peao &&(destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
             {
                 VulneravelEnpassant = pecaMovida;
